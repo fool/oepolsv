@@ -1,4 +1,4 @@
-export default async function exit(req, res) {
+export default async function exit(req: any, res: any) {
   console.log('exit data')
   const { slug = '' } = req.query
   // Exit the current user from "Preview Mode". This function accepts no args.
@@ -6,7 +6,7 @@ export default async function exit(req, res) {
 
    // set the cookies to None
    const cookies = res.getHeader('Set-Cookie')
-   res.setHeader('Set-Cookie', cookies.map((cookie) => cookie.replace('SameSite=Lax', 'SameSite=None;Secure')))
+   res.setHeader('Set-Cookie', cookies.map((cookie: any) => cookie.replace('SameSite=Lax', 'SameSite=None;Secure')))
 
   // Redirect the user back to the index page.
   res.redirect(`/${slug}`)

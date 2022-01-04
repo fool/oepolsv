@@ -1,6 +1,6 @@
 
 
-export default async function preview(req, res) {
+export default async function preview(req: any, res: any) {
   console.log('preview route', process.env.STORYBLOK_TOKEN, req.url);
   const { slug = '' } = req.query;
   // get the storyblok params for the bridge to work
@@ -19,7 +19,7 @@ export default async function preview(req, res) {
   const cookies = res.getHeader('Set-Cookie');
   res.setHeader(
     'Set-Cookie',
-    cookies.map((cookie) =>
+    cookies.map((cookie: any) =>
       cookie.replace('SameSite=Lax', 'SameSite=None;Secure')
     )
   );
